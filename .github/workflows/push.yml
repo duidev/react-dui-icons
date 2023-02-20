@@ -38,3 +38,12 @@ jobs:
         build_dir: docs
       env:
         GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
+    - name: Notify to Lark
+      uses: echoings/actions.notify@v0.1.0
+      with:
+        plat_type: 'Lark'
+        notify_title: 'react-dui-icons 版本更新'
+        notify_message: '已更新成功！'
+        template_color: 'green'
+      env:
+        NOTIFY_WEBHOOK: ${{ secrets.NOTIFY_WEBHOOK }}
