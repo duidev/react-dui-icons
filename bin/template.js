@@ -22,30 +22,24 @@ const getAttrs = (style) => {
 
 const getElementCode = (ComponentName, attrs, svgCode) => `
   import React from 'react';
-  import PropTypes from 'prop-types';
 
-  const ${ComponentName} = (props) => {
-    const { color, size, ...otherProps } = props;
-    return (
-      <svg ${attrs}>
-        ${svgCode}
-      </svg>
-    )
-  };
+  const ${ComponentName} = /*#__PURE__*/ (function () {
+    const component = function(props) {
+      const { color, size, ...otherProps } = props;
+      return (
+        <svg ${attrs}>
+          ${svgCode}
+        </svg>
+      )
+    };
+  
+    component.defaultProps = {
+      color: '#0C0F0F',
+      size: '24',
+    }
 
-  ${ComponentName}.propTypes = {
-    color: PropTypes.string,
-    size: PropTypes.oneOfType([
-      PropTypes.string,
-      PropTypes.number
-    ]),
-  }
-
-  ${ComponentName}.defaultProps = {
-    // color: 'currentColor',
-    color: '#0C0F0F',
-    size: '24',
-  }
+    return component
+  })()
 
   export default ${ComponentName}
 `
