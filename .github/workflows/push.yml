@@ -17,7 +17,11 @@ jobs:
     - uses: actions/setup-node@v3
       with:
         node-version: 16
-    - run: yarn install
+        registry-url: 'https://registry.npmjs.org'
+    
+    # 使用--network-timeout和--no-strict-ssl参数来解决证书问题
+    - run: yarn config set strict-ssl false
+    - run: yarn install --network-timeout 100000
     
     # 直接从本地SVG生成图标组件
     - run: yarn generate
