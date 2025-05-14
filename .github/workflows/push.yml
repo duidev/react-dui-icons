@@ -9,7 +9,7 @@ on:
 
 jobs:
   icon_automation:
-    name: figma icon automation
+    name: react-icons publish
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v3
@@ -18,13 +18,8 @@ jobs:
       with:
         node-version: 16
     - run: yarn install
-    - name: Figma Action
-      uses: primer/figma-action@v1.0.0-alpha.2
-      with:
-        args: "format=svg outputDir=./src/"
-      env:
-        FIGMA_FILE_URL: ${{ secrets.FIGMA_FILE_URL }}
-        FIGMA_TOKEN: ${{ secrets.FIGMA_TOKEN }}
+    
+    # 直接从本地SVG生成图标组件
     - run: yarn generate
     - run: yarn build:bundle
     - run: echo "//registry.npmjs.org/:_authToken=${{ secrets.NPM_AUTH_TOKEN }}" > ~/.npmrc
