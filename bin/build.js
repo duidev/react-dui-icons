@@ -7,13 +7,13 @@ const processSvg = require('./processSvg')
 const { parseName } = require('./utils')
 const defaultStyle = process.env.npm_package_config_style || 'stroke'
 const { getAttrs, getElementCode } = require('./template')
-const icons = require('../src/data.json')
 
 const rootDir = path.join(__dirname, '..')
 
 // where icons code in
 const srcDir = path.join(rootDir, 'src')
 const iconsDir = path.join(rootDir, 'src/icons')
+const svgDir = path.join(rootDir, 'src/svg')
 
 // generate icons.js and icons.d.ts file
 const generateIconsIndex = () => {
@@ -59,35 +59,45 @@ const attrsToString = (attrs, style) => {
 };
 
 // generate icon code separately
-const generateIconCode = async ({name}) => {
-  const names = parseName(name, defaultStyle)
-  console.log(names)
-  const location = path.join(rootDir, 'src/svg', `${names.name}.svg`)
-  const destination = path.join(rootDir, 'src/icons', `${names.name}.js`)
-  const code = fs.readFileSync(location)
-  const svgCode = await processSvg(code)
-  const ComponentName = names.componentName
-  const element = getElementCode(ComponentName, attrsToString(getAttrs(names.style), names.style), svgCode)
-  const component = format({
-    text: element,
-    eslintConfig: {
-      extends: 'airbnb',
-    },
-    prettierOptions: {
-      bracketSpacing: true,
-      singleQuote: true,
-      parser: 'flow',
-    },
-  });
+const generateIconCode = async (svgFileName) => {
+  // 从文件名解析出图标名称（不带扩展名）
+  const name = svgFileName.replace('.svg', '');
+  const names = parseName(name, defaultStyle);
+  
+  const location = path.join(svgDir, svgFileName);
+  const destination = path.join(iconsDir, `${names.name}.js`);
+  
+  try {
+    const code = fs.readFileSync(location);
+    const svgCode = await processSvg(code);
+    const ComponentName = names.componentName;
+    const element = getElementCode(ComponentName, attrsToString(getAttrs(names.style), names.style), svgCode);
+    const component = format({
+      text: element,
+      eslintConfig: {
+        extends: 'airbnb',
+      },
+      prettierOptions: {
+        bracketSpacing: true,
+        singleQuote: true,
+        parser: 'flow',
+      },
+    });
 
-  fs.writeFileSync(destination, component, 'utf-8');
+    fs.writeFileSync(destination, component, 'utf-8');
 
-  console.log('Successfully built', ComponentName);
-  return {ComponentName, name: names.name}
+    console.log('Successfully built', ComponentName);
+    return {ComponentName, name: names.name};
+  } catch (error) {
+    console.error(`Error processing ${svgFileName}:`, error.message);
+    return null;
+  }
 }
 
 // append export code to icons.js
 const appendToIconsIndex = ({ComponentName, name}) => {
+  if (!ComponentName || !name) return;
+  
   const exportString = `export { default as ${ComponentName} } from './icons/${name}';\r\n`;
   fs.appendFileSync(
     path.join(rootDir, 'src', 'icons.js'),
@@ -103,14 +113,28 @@ const appendToIconsIndex = ({ComponentName, name}) => {
   );
 }
 
-generateIconsIndex()
+// Main execution
+async function main() {
+  // 初始化索引文件
+  generateIconsIndex();
+  
+  try {
+    // 读取SVG目录中的所有文件
+    const svgFiles = fs.readdirSync(svgDir).filter(file => file.endsWith('.svg'));
+    
+    // 处理每个SVG文件
+    for (const svgFile of svgFiles) {
+      const result = await generateIconCode(svgFile);
+      if (result) {
+        appendToIconsIndex(result);
+      }
+    }
+    
+    console.log(`Successfully processed ${svgFiles.length} SVG icons`);
+  } catch (error) {
+    console.error('Error processing SVG files:', error);
+  }
+}
 
-Object
-  .keys(icons)
-  .map(key => icons[key])
-  .forEach(({name}) => {
-    generateIconCode({name})
-      .then(({ComponentName, name}) => {
-        appendToIconsIndex({ComponentName, name})
-      })
-  })
+// 执行主函数
+main();

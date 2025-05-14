@@ -23,25 +23,23 @@ const getAttrs = (style) => {
 const getElementCode = (ComponentName, attrs, svgCode) => `
   import React from 'react';
 
-  const ${ComponentName} = /*#__PURE__*/ (function () {
-    const component = function(props) {
-      const { color, size, ...otherProps } = props;
-      return (
-        <svg ${attrs}>
-          ${svgCode}
-        </svg>
-      )
-    };
+  const ${ComponentName}Component = (props) => {
+    const { color, size, ...otherProps } = props;
+    return (
+      <svg ${attrs}>
+        ${svgCode}
+      </svg>
+    )
+  };
   
-    component.defaultProps = {
-      color: '#0C0F0F',
-      size: '24',
-    }
-
-    return component
-  })()
-
-  export default ${ComponentName}
+  ${ComponentName}Component.defaultProps = {
+    color: '#0C0F0F',
+    size: '24',
+  }
+  
+  const ${ComponentName} = React.memo(${ComponentName}Component);
+  
+  export default ${ComponentName};
 `
 
 module.exports = { getAttrs, getElementCode }
