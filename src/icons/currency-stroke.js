@@ -1,7 +1,6 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 
-const Currency = props => {
+const CurrencyComponent = props => {
   const { color, size, ...otherProps } = props;
   return (
     <svg
@@ -16,8 +15,8 @@ const Currency = props => {
       {...otherProps}
     >
       <path
-        d="M8.5 14.667A2.333 2.333 0 0010.833 17H13a2.5 2.5 0 000-5h-2a2.5 2.5 0 010-5h2.167A2.333 2.333 0 0115.5 9.333M12 5.5V7m0 10v1.5M22 12c0 5.523-4.477 10-10 10S2 17.523 2 12 6.477 2 12 2s10 4.477 10 10z"
-        strokeWidth="2"
+        d="M12 7.4v.884m0 7.5v.716m.813-4.625H10v-3.03c0-.19.155-.345.346-.345h2.466a1.687 1.687 0 110 3.375zm0 0h-2.467a.346.346 0 00-.346.346v2.682c0 .192.155.347.346.347h2.466a1.688 1.688 0 000-3.375zM22 12c0 5.523-4.477 10-10 10S2 17.523 2 12 6.477 2 12 2s10 4.477 10 10z"
+        strokeWidth="1.5"
         strokeLinecap="round"
         strokeLinejoin="round"
       ></path>
@@ -25,15 +24,11 @@ const Currency = props => {
   );
 };
 
-Currency.propTypes = {
-  color: PropTypes.string,
-  size: PropTypes.oneOfType([PropTypes.string, PropTypes.number])
-};
-
-Currency.defaultProps = {
-  // color: 'currentColor',
+CurrencyComponent.defaultProps = {
   color: '#0C0F0F',
   size: '24'
 };
+
+const Currency = React.memo(CurrencyComponent);
 
 export default Currency;

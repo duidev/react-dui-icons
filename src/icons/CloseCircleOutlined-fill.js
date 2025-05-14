@@ -1,7 +1,6 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 
-const CloseCircleOutlinedFill = props => {
+const CloseCircleOutlinedFillComponent = props => {
   const { color, size, ...otherProps } = props;
   return (
     <svg
@@ -16,7 +15,7 @@ const CloseCircleOutlinedFill = props => {
     >
       <g clipPath="url(#clip0_20_104)">
         <path
-          d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm4.43 16.559l-1.768-.008L12 13.377l-2.66 3.171-1.77.008a.213.213 0 01-.215-.214c0-.05.02-.1.051-.14l3.485-4.151L7.406 7.9a.215.215 0 01.163-.354l1.771.01L12 10.73l2.66-3.171 1.768-.008c.117 0 .214.094.214.214 0 .051-.019.1-.05.14l-3.48 4.149 3.482 4.151a.215.215 0 01-.163.354z"
+          d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm4.43 16.56l-1.768-.009L12 13.377l-2.66 3.171-1.77.008a.213.213 0 01-.215-.214c0-.05.02-.099.051-.14l3.485-4.151-3.485-4.15a.215.215 0 01.163-.354l1.771.01L12 10.73l2.66-3.171 1.768-.008c.117 0 .214.094.214.214 0 .051-.019.1-.05.14l-3.48 4.149 3.482 4.152a.215.215 0 01-.163.354z"
           fill="#F74A4C"
         ></path>
       </g>
@@ -29,15 +28,11 @@ const CloseCircleOutlinedFill = props => {
   );
 };
 
-CloseCircleOutlinedFill.propTypes = {
-  color: PropTypes.string,
-  size: PropTypes.oneOfType([PropTypes.string, PropTypes.number])
-};
-
-CloseCircleOutlinedFill.defaultProps = {
-  // color: 'currentColor',
+CloseCircleOutlinedFillComponent.defaultProps = {
   color: '#0C0F0F',
   size: '24'
 };
+
+const CloseCircleOutlinedFill = React.memo(CloseCircleOutlinedFillComponent);
 
 export default CloseCircleOutlinedFill;

@@ -1,7 +1,6 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 
-const PriceIncreaseFill = props => {
+const PriceIncreaseFillComponent = props => {
   const { color, size, ...otherProps } = props;
   return (
     <svg
@@ -37,15 +36,11 @@ const PriceIncreaseFill = props => {
   );
 };
 
-PriceIncreaseFill.propTypes = {
-  color: PropTypes.string,
-  size: PropTypes.oneOfType([PropTypes.string, PropTypes.number])
-};
-
-PriceIncreaseFill.defaultProps = {
-  // color: 'currentColor',
+PriceIncreaseFillComponent.defaultProps = {
   color: '#0C0F0F',
   size: '24'
 };
+
+const PriceIncreaseFill = React.memo(PriceIncreaseFillComponent);
 
 export default PriceIncreaseFill;

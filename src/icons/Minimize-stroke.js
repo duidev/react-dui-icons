@@ -1,7 +1,6 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 
-const Minimize = props => {
+const MinimizeComponent = props => {
   const { color, size, ...otherProps } = props;
   return (
     <svg
@@ -16,8 +15,8 @@ const Minimize = props => {
       {...otherProps}
     >
       <path
-        d="M4 14h6m0 0v6m0-6l-7 7m17-11h-6m0 0V4m0 6l7-7"
-        strokeWidth="2"
+        d="M4.889 13.778h5.333m0 0v5.333m0-5.333L4 20m15.111-9.778h-5.333m0 0V4.89m0 5.333L20 4"
+        strokeWidth="1.5"
         strokeLinecap="round"
         strokeLinejoin="round"
       ></path>
@@ -25,15 +24,11 @@ const Minimize = props => {
   );
 };
 
-Minimize.propTypes = {
-  color: PropTypes.string,
-  size: PropTypes.oneOfType([PropTypes.string, PropTypes.number])
-};
-
-Minimize.defaultProps = {
-  // color: 'currentColor',
+MinimizeComponent.defaultProps = {
   color: '#0C0F0F',
   size: '24'
 };
+
+const Minimize = React.memo(MinimizeComponent);
 
 export default Minimize;

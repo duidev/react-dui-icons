@@ -1,7 +1,6 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 
-const Link = props => {
+const LinkComponent = props => {
   const { color, size, ...otherProps } = props;
   return (
     <svg
@@ -16,23 +15,29 @@ const Link = props => {
       {...otherProps}
     >
       <path
-        d="M17.928 9.696l1-1.732a4 4 0 00-6.928-4L9 9.161a4 4 0 001.464 5.464M6 14.357l-1 1.732a4 4 0 006.928 4l3-5.196a4 4 0 00-1.464-5.464"
-        strokeWidth="2"
+        d="M10.01 6.716l2.803-2.21a5.21 5.21 0 017.316.866v0a5.21 5.21 0 01-.866 7.316l-2.754 2.17"
+        strokeWidth="1.5"
+        strokeLinecap="round"
+      ></path>
+      <path
+        d="M7.146 8.973l-2.519 1.985a5.21 5.21 0 00-.866 7.316v0a5.21 5.21 0 007.316.867l2.78-2.192"
+        strokeWidth="1.5"
+        strokeLinecap="round"
+      ></path>
+      <path
+        d="M9.132 13.813l6.065-4.5"
+        strokeWidth="1.5"
         strokeLinecap="round"
       ></path>
     </svg>
   );
 };
 
-Link.propTypes = {
-  color: PropTypes.string,
-  size: PropTypes.oneOfType([PropTypes.string, PropTypes.number])
-};
-
-Link.defaultProps = {
-  // color: 'currentColor',
+LinkComponent.defaultProps = {
   color: '#0C0F0F',
   size: '24'
 };
+
+const Link = React.memo(LinkComponent);
 
 export default Link;

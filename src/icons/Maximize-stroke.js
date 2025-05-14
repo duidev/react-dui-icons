@@ -1,7 +1,6 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 
-const Maximize = props => {
+const MaximizeComponent = props => {
   const { color, size, ...otherProps } = props;
   return (
     <svg
@@ -16,8 +15,8 @@ const Maximize = props => {
       {...otherProps}
     >
       <path
-        d="M14 10l7-7m0 0h-6m6 0v6m-11 5l-7 7m0 0h6m-6 0v-6"
-        strokeWidth="2"
+        d="M13.778 10.222L20 4m0 0h-5.333M20 4v5.333m-9.778 4.445L4 20m0 0h5.333M4 20v-5.333"
+        strokeWidth="1.5"
         strokeLinecap="round"
         strokeLinejoin="round"
       ></path>
@@ -25,15 +24,11 @@ const Maximize = props => {
   );
 };
 
-Maximize.propTypes = {
-  color: PropTypes.string,
-  size: PropTypes.oneOfType([PropTypes.string, PropTypes.number])
-};
-
-Maximize.defaultProps = {
-  // color: 'currentColor',
+MaximizeComponent.defaultProps = {
   color: '#0C0F0F',
   size: '24'
 };
+
+const Maximize = React.memo(MaximizeComponent);
 
 export default Maximize;

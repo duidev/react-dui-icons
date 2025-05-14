@@ -1,7 +1,6 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 
-const Share = props => {
+const ShareComponent = props => {
   const { color, size, ...otherProps } = props;
   return (
     <svg
@@ -16,22 +15,18 @@ const Share = props => {
       {...otherProps}
     >
       <path
-        d="M14.147 8S1.783 8 3.098 21.544c.01.106.157.135.193.034.702-1.972 3.01-7.155 10.856-8.078v5.119a.5.5 0 00.884.32l6.506-7.807a.2.2 0 00-.003-.26l-7.212-8.174a.1.1 0 00-.175.066V8z"
-        strokeWidth="2"
+        d="M13.823 7.75S1.46 7.75 2.775 21.294c.01.106.157.135.193.034.702-1.972 3.01-7.155 10.855-8.078v5.119a.5.5 0 00.885.32l6.506-7.807a.2.2 0 00-.004-.26l-7.212-8.174a.1.1 0 00-.174.066V7.75z"
+        strokeWidth="1.5"
       ></path>
     </svg>
   );
 };
 
-Share.propTypes = {
-  color: PropTypes.string,
-  size: PropTypes.oneOfType([PropTypes.string, PropTypes.number])
-};
-
-Share.defaultProps = {
-  // color: 'currentColor',
+ShareComponent.defaultProps = {
   color: '#0C0F0F',
   size: '24'
 };
+
+const Share = React.memo(ShareComponent);
 
 export default Share;

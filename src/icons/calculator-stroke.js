@@ -1,7 +1,6 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 
-const Calculator = props => {
+const CalculatorComponent = props => {
   const { color, size, ...otherProps } = props;
   return (
     <svg
@@ -16,8 +15,8 @@ const Calculator = props => {
       {...otherProps}
     >
       <path
-        d="M6.61 8.813h4.406m1.468 6.609h4.407m-8.078-4.406V6.609M5.14 21.297h13.218a2.938 2.938 0 002.938-2.938V5.141a2.938 2.938 0 00-2.938-2.938H5.141a2.938 2.938 0 00-2.938 2.938v13.218a2.938 2.938 0 002.938 2.938z"
-        strokeWidth="2"
+        d="M13.5 17h4m-11-8.01h2.192m0 0h2.193m-2.193 0v2.192m0-2.193V6.797M5.423 21h13.154a2.919 2.919 0 002.923-2.914V5.914A2.919 2.919 0 0018.577 3H5.423A2.919 2.919 0 002.5 5.914v12.172A2.919 2.919 0 005.423 21z"
+        strokeWidth="1.5"
         strokeLinecap="round"
         strokeLinejoin="round"
       ></path>
@@ -25,15 +24,11 @@ const Calculator = props => {
   );
 };
 
-Calculator.propTypes = {
-  color: PropTypes.string,
-  size: PropTypes.oneOfType([PropTypes.string, PropTypes.number])
-};
-
-Calculator.defaultProps = {
-  // color: 'currentColor',
+CalculatorComponent.defaultProps = {
   color: '#0C0F0F',
   size: '24'
 };
+
+const Calculator = React.memo(CalculatorComponent);
 
 export default Calculator;

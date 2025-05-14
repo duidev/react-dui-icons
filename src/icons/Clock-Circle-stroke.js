@@ -1,7 +1,6 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 
-const ClockCircle = props => {
+const ClockCircleComponent = props => {
   const { color, size, ...otherProps } = props;
   return (
     <svg
@@ -16,8 +15,8 @@ const ClockCircle = props => {
       {...otherProps}
     >
       <path
-        d="M12 6v6l4 2m6-2c0 5.523-4.477 10-10 10S2 17.523 2 12 6.477 2 12 2s10 4.477 10 10z"
-        strokeWidth="2"
+        d="M11 8.5v4.504L15.5 13m5.5-1a9 9 0 11-18 0 9 9 0 0118 0z"
+        strokeWidth="1.501"
         strokeLinecap="round"
         strokeLinejoin="round"
       ></path>
@@ -25,15 +24,11 @@ const ClockCircle = props => {
   );
 };
 
-ClockCircle.propTypes = {
-  color: PropTypes.string,
-  size: PropTypes.oneOfType([PropTypes.string, PropTypes.number])
-};
-
-ClockCircle.defaultProps = {
-  // color: 'currentColor',
+ClockCircleComponent.defaultProps = {
   color: '#0C0F0F',
   size: '24'
 };
+
+const ClockCircle = React.memo(ClockCircleComponent);
 
 export default ClockCircle;

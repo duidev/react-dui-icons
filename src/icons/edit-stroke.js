@@ -1,7 +1,6 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 
-const Edit = props => {
+const EditComponent = props => {
   const { color, size, ...otherProps } = props;
   return (
     <svg
@@ -16,8 +15,8 @@ const Edit = props => {
       {...otherProps}
     >
       <path
-        d="M21 12.988V16.2c0 1.68 0 2.52-.327 3.162a3 3 0 01-1.311 1.311C18.72 21 17.88 21 16.2 21H7.8c-1.68 0-2.52 0-3.162-.327a3 3 0 01-1.311-1.311C3 18.72 3 17.88 3 16.2V7.8c0-1.68 0-2.52.327-3.162a3 3 0 011.311-1.311C5.28 3 6.12 3 7.8 3h3.212c.733 0 1.1 0 1.446.083M20 3L10 15"
-        strokeWidth="2"
+        d="M11.742 6.298l5.5 5m-4.52 9h9m-17.443.594h2.863a2 2 0 001.414-.586l10.961-10.96a2 2 0 000-2.83l-2.823-2.822a2 2 0 00-2.828 0L3.042 14.517a2 2 0 00-.582 1.295l-.178 2.96a2 2 0 001.997 2.12z"
+        strokeWidth="1.5"
         strokeLinecap="round"
         strokeLinejoin="round"
       ></path>
@@ -25,15 +24,11 @@ const Edit = props => {
   );
 };
 
-Edit.propTypes = {
-  color: PropTypes.string,
-  size: PropTypes.oneOfType([PropTypes.string, PropTypes.number])
-};
-
-Edit.defaultProps = {
-  // color: 'currentColor',
+EditComponent.defaultProps = {
   color: '#0C0F0F',
   size: '24'
 };
+
+const Edit = React.memo(EditComponent);
 
 export default Edit;

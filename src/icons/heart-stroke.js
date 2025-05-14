@@ -1,7 +1,6 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 
-const Heart = props => {
+const HeartComponent = props => {
   const { color, size, ...otherProps } = props;
   return (
     <svg
@@ -16,25 +15,18 @@ const Heart = props => {
       {...otherProps}
     >
       <path
-        clipRule="evenodd"
-        d="M11.993 5.136c-2-2.338-5.333-2.966-7.838-.826s-2.858 5.719-.89 8.25c1.635 2.105 6.585 6.544 8.207 7.98.182.162.272.242.378.274a.504.504 0 00.286 0c.106-.032.197-.112.378-.273 1.623-1.437 6.573-5.876 8.208-7.98 1.967-2.532 1.658-6.133-.89-8.251-2.549-2.118-5.84-1.512-7.839.826z"
-        strokeWidth="2"
-        strokeLinecap="round"
-        strokeLinejoin="round"
+        d="M12.519 4.87c2.363-2.298 6.49-2.25 8.638.774l.201.301a5.844 5.844 0 01-.982 7.392l-.204.179-7.547 6.316a1.25 1.25 0 01-1.53.058l-.09-.072-7.24-6.267c-2.107-1.824-2.623-4.898-1.257-7.314l.138-.231c2.077-3.314 6.373-3.464 8.834-1.131l.522.495.517-.5z"
+        strokeWidth="1.5"
       ></path>
     </svg>
   );
 };
 
-Heart.propTypes = {
-  color: PropTypes.string,
-  size: PropTypes.oneOfType([PropTypes.string, PropTypes.number])
-};
-
-Heart.defaultProps = {
-  // color: 'currentColor',
+HeartComponent.defaultProps = {
   color: '#0C0F0F',
   size: '24'
 };
+
+const Heart = React.memo(HeartComponent);
 
 export default Heart;

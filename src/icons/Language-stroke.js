@@ -1,7 +1,6 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 
-const Language = props => {
+const LanguageComponent = props => {
   const { color, size, ...otherProps } = props;
   return (
     <svg
@@ -16,8 +15,19 @@ const Language = props => {
       {...otherProps}
     >
       <path
-        d="M2 12h20M2 12c0 5.523 4.477 10 10 10M2 12C2 6.477 6.477 2 12 2m10 10c0 5.523-4.477 10-10 10m10-10c0-5.523-4.477-10-10-10m0 0a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10m0-20a15.3 15.3 0 00-4 10 15.3 15.3 0 004 10"
-        strokeWidth="2"
+        d="M11.996 22c5.522 0 10-4.477 10-10s-4.477-10-10-10-10 4.477-10 10 4.477 10 10 10z"
+        strokeWidth="1.5"
+        strokeLinecap="round"
+      ></path>
+      <path
+        d="M16.773 3.328c.6 2.73-2.665 3.073-3.764 4.029-1.201 1.044.693 3.621-1.038 4.587-1.731.967-3.583-1.97-4.799-1.308-1.215.663-.466 3.065-1.334 3.857-.468.426-2.357-.157-3.593-.661"
+        strokeWidth="1.5"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      ></path>
+      <path
+        d="M15 21.404c-.584-.846-.718-1.738-.506-2.403.394-1.236 1.043-1.163 1.326-1.927.283-.764-.517-1.852 1.258-2.782 1.016-.533 3.015-.054 3.922 1.708"
+        strokeWidth="1.5"
         strokeLinecap="round"
         strokeLinejoin="round"
       ></path>
@@ -25,15 +35,11 @@ const Language = props => {
   );
 };
 
-Language.propTypes = {
-  color: PropTypes.string,
-  size: PropTypes.oneOfType([PropTypes.string, PropTypes.number])
-};
-
-Language.defaultProps = {
-  // color: 'currentColor',
+LanguageComponent.defaultProps = {
   color: '#0C0F0F',
   size: '24'
 };
+
+const Language = React.memo(LanguageComponent);
 
 export default Language;

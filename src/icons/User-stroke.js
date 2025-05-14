@@ -1,7 +1,6 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 
-const User = props => {
+const UserComponent = props => {
   const { color, size, ...otherProps } = props;
   return (
     <svg
@@ -16,24 +15,27 @@ const User = props => {
       {...otherProps}
     >
       <path
-        d="M5.316 19.438A4.001 4.001 0 019 17h6a4.001 4.001 0 013.684 2.438M16 9.5a4 4 0 11-8 0 4 4 0 018 0zm6 2.5c0 5.523-4.477 10-10 10S2 17.523 2 12 6.477 2 12 2s10 4.477 10 10z"
-        strokeWidth="2"
+        d="M11.996 22c5.522 0 10-4.477 10-10s-4.477-10-10-10-10 4.477-10 10 4.477 10 10 10z"
+        strokeWidth="1.5"
+      ></path>
+      <path
+        d="M18.128 19.77c0-2.183-2.792-3.952-6.235-3.952-3.444 0-6.235 1.77-6.235 3.952"
+        strokeWidth="1.5"
         strokeLinecap="round"
-        strokeLinejoin="round"
+      ></path>
+      <path
+        d="M11.996 6.75a3.25 3.25 0 110 6.5 3.25 3.25 0 010-6.5z"
+        strokeWidth="1.5"
       ></path>
     </svg>
   );
 };
 
-User.propTypes = {
-  color: PropTypes.string,
-  size: PropTypes.oneOfType([PropTypes.string, PropTypes.number])
-};
-
-User.defaultProps = {
-  // color: 'currentColor',
+UserComponent.defaultProps = {
   color: '#0C0F0F',
   size: '24'
 };
+
+const User = React.memo(UserComponent);
 
 export default User;

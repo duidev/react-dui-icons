@@ -1,7 +1,6 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 
-const Transfer = props => {
+const TransferComponent = props => {
   const { color, size, ...otherProps } = props;
   return (
     <svg
@@ -16,14 +15,8 @@ const Transfer = props => {
       {...otherProps}
     >
       <path
-        d="M2 9.5h20L19.5 7l-1.25-1.25"
-        strokeWidth="2"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      ></path>
-      <path
-        d="M22 14.5H2L4.5 17l1.25 1.25"
-        strokeWidth="2"
+        d="M3 8.125h18L17.625 4.75M21 15.875H3l3.375 3.375"
+        strokeWidth="1.5"
         strokeLinecap="round"
         strokeLinejoin="round"
       ></path>
@@ -31,15 +24,11 @@ const Transfer = props => {
   );
 };
 
-Transfer.propTypes = {
-  color: PropTypes.string,
-  size: PropTypes.oneOfType([PropTypes.string, PropTypes.number])
-};
-
-Transfer.defaultProps = {
-  // color: 'currentColor',
+TransferComponent.defaultProps = {
   color: '#0C0F0F',
   size: '24'
 };
+
+const Transfer = React.memo(TransferComponent);
 
 export default Transfer;

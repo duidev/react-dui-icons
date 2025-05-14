@@ -1,7 +1,6 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 
-const ArrowMoreFill = props => {
+const ArrowMoreFillComponent = props => {
   const { color, size, ...otherProps } = props;
   return (
     <svg
@@ -25,15 +24,11 @@ const ArrowMoreFill = props => {
   );
 };
 
-ArrowMoreFill.propTypes = {
-  color: PropTypes.string,
-  size: PropTypes.oneOfType([PropTypes.string, PropTypes.number])
-};
-
-ArrowMoreFill.defaultProps = {
-  // color: 'currentColor',
+ArrowMoreFillComponent.defaultProps = {
   color: '#0C0F0F',
   size: '24'
 };
+
+const ArrowMoreFill = React.memo(ArrowMoreFillComponent);
 
 export default ArrowMoreFill;

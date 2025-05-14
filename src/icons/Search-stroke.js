@@ -1,7 +1,6 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 
-const Search = props => {
+const SearchComponent = props => {
   const { color, size, ...otherProps } = props;
   return (
     <svg
@@ -16,24 +15,19 @@ const Search = props => {
       {...otherProps}
     >
       <path
-        d="M21 21l-4.35-4.35M11 6a5 5 0 015 5m3 0a8 8 0 11-16 0 8 8 0 0116 0z"
-        strokeWidth="2"
+        d="M17 17l2.996 3m-1.25-8.75a7.5 7.5 0 11-15 0 7.5 7.5 0 0115 0z"
+        strokeWidth="1.5"
         strokeLinecap="round"
-        strokeLinejoin="round"
       ></path>
     </svg>
   );
 };
 
-Search.propTypes = {
-  color: PropTypes.string,
-  size: PropTypes.oneOfType([PropTypes.string, PropTypes.number])
-};
-
-Search.defaultProps = {
-  // color: 'currentColor',
+SearchComponent.defaultProps = {
   color: '#0C0F0F',
   size: '24'
 };
+
+const Search = React.memo(SearchComponent);
 
 export default Search;

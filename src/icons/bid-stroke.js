@@ -1,7 +1,6 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 
-const Bid = props => {
+const BidComponent = props => {
   const { color, size, ...otherProps } = props;
   return (
     <svg
@@ -16,24 +15,49 @@ const Bid = props => {
       {...otherProps}
     >
       <path
-        d="M14 5c0 1.105-2.462 2-5.5 2S3 6.105 3 5m11 0c0-1.105-2.462-2-5.5-2S3 3.895 3 5m11 0v1.5M3 5v12c0 1.105 2.462 2 5.5 2m0-8c-.169 0-.335-.003-.5-.008C5.197 10.9 3 10.043 3 9m5.5 6C5.462 15 3 14.105 3 13m20-1.5c0 1.105-2.462 2-5.5 2s-5.5-.895-5.5-2m11 0c0-1.105-2.462-2-5.5-2s-5.5.895-5.5 2m11 0V19c0 1.105-2.462 2-5.5 2s-5.5-.895-5.5-2v-7.5m11 3.75c0 1.105-2.462 2-5.5 2s-5.5-.895-5.5-2"
-        strokeWidth="2"
+        d="M16.5 8.25c1.712 0 3.225.322 4.282.81 1.12.517 1.468 1.08 1.468 1.44 0 .36-.347.923-1.468 1.44-1.057.488-2.57.81-4.282.81-1.712 0-3.225-.322-4.282-.81-1.12-.517-1.468-1.08-1.468-1.44 0-.36.347-.923 1.468-1.44 1.057-.488 2.57-.81 4.282-.81z"
+        strokeWidth="1.5"
         strokeLinecap="round"
         strokeLinejoin="round"
+      ></path>
+      <path
+        d="M10.8 10.5v4.351c0 1.463 2.819 2.649 5.75 2.649s5.75-1.186 5.75-2.649V10.5"
+        strokeWidth="1.5"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      ></path>
+      <path
+        d="M10.8 14.5v5.017c0 1.371 2.819 2.483 5.75 2.483s5.75-1.112 5.75-2.483V14.5"
+        strokeWidth="1.5"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      ></path>
+      <path
+        d="M7.5 2.75c1.712 0 3.225.322 4.282.81 1.12.517 1.468 1.08 1.468 1.44 0 .36-.347.923-1.468 1.44-1.057.488-2.57.81-4.282.81-1.712 0-3.225-.322-4.282-.81C2.098 5.923 1.75 5.36 1.75 5c0-.36.347-.923 1.468-1.44 1.057-.488 2.57-.81 4.282-.81z"
+        strokeWidth="1.5"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      ></path>
+      <path
+        d="M7.7 17c-3.314 0-6-1.007-6-2.25V5"
+        strokeWidth="1.5"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      ></path>
+      <path
+        d="M1.7 9.5c0 1.38 2.462 2.5 5.5 2.5.424 0 .836-.022 1.232-.063"
+        strokeWidth="1.5"
+        strokeLinecap="round"
       ></path>
     </svg>
   );
 };
 
-Bid.propTypes = {
-  color: PropTypes.string,
-  size: PropTypes.oneOfType([PropTypes.string, PropTypes.number])
-};
-
-Bid.defaultProps = {
-  // color: 'currentColor',
+BidComponent.defaultProps = {
   color: '#0C0F0F',
   size: '24'
 };
+
+const Bid = React.memo(BidComponent);
 
 export default Bid;

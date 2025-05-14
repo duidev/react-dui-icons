@@ -1,7 +1,6 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 
-const Unradio = props => {
+const UnradioComponent = props => {
   const { color, size, ...otherProps } = props;
   return (
     <svg
@@ -20,15 +19,11 @@ const Unradio = props => {
   );
 };
 
-Unradio.propTypes = {
-  color: PropTypes.string,
-  size: PropTypes.oneOfType([PropTypes.string, PropTypes.number])
-};
-
-Unradio.defaultProps = {
-  // color: 'currentColor',
+UnradioComponent.defaultProps = {
   color: '#0C0F0F',
   size: '24'
 };
+
+const Unradio = React.memo(UnradioComponent);
 
 export default Unradio;

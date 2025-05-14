@@ -1,7 +1,6 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 
-const IconArrowUp = props => {
+const IconArrowUpComponent = props => {
   const { color, size, ...otherProps } = props;
   return (
     <svg
@@ -16,8 +15,8 @@ const IconArrowUp = props => {
       {...otherProps}
     >
       <path
-        d="M18 15l-6-6-6 6"
-        strokeWidth="2"
+        d="M4.126 16l7.251-7.25a1 1 0 011.414 0L20.043 16"
+        strokeWidth="1.5"
         strokeLinecap="round"
         strokeLinejoin="round"
       ></path>
@@ -25,15 +24,11 @@ const IconArrowUp = props => {
   );
 };
 
-IconArrowUp.propTypes = {
-  color: PropTypes.string,
-  size: PropTypes.oneOfType([PropTypes.string, PropTypes.number])
-};
-
-IconArrowUp.defaultProps = {
-  // color: 'currentColor',
+IconArrowUpComponent.defaultProps = {
   color: '#0C0F0F',
   size: '24'
 };
+
+const IconArrowUp = React.memo(IconArrowUpComponent);
 
 export default IconArrowUp;

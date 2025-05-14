@@ -1,7 +1,6 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 
-const UncheckboxFill = props => {
+const UncheckboxFillComponent = props => {
   const { color, size, ...otherProps } = props;
   return (
     <svg
@@ -34,15 +33,11 @@ const UncheckboxFill = props => {
   );
 };
 
-UncheckboxFill.propTypes = {
-  color: PropTypes.string,
-  size: PropTypes.oneOfType([PropTypes.string, PropTypes.number])
-};
-
-UncheckboxFill.defaultProps = {
-  // color: 'currentColor',
+UncheckboxFillComponent.defaultProps = {
   color: '#0C0F0F',
   size: '24'
 };
+
+const UncheckboxFill = React.memo(UncheckboxFillComponent);
 
 export default UncheckboxFill;

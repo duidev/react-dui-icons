@@ -1,7 +1,6 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 
-const SidebarFill = props => {
+const SidebarFillComponent = props => {
   const { color, size, ...otherProps } = props;
   return (
     <svg
@@ -31,15 +30,11 @@ const SidebarFill = props => {
   );
 };
 
-SidebarFill.propTypes = {
-  color: PropTypes.string,
-  size: PropTypes.oneOfType([PropTypes.string, PropTypes.number])
-};
-
-SidebarFill.defaultProps = {
-  // color: 'currentColor',
+SidebarFillComponent.defaultProps = {
   color: '#0C0F0F',
   size: '24'
 };
+
+const SidebarFill = React.memo(SidebarFillComponent);
 
 export default SidebarFill;

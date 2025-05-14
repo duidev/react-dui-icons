@@ -1,7 +1,6 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 
-const SortSolidDownFill = props => {
+const SortSolidDownFillComponent = props => {
   const { color, size, ...otherProps } = props;
   return (
     <svg
@@ -14,24 +13,20 @@ const SortSolidDownFill = props => {
       color={color}
       {...otherProps}
     >
-      <path d="M17.598 13.6H6.402c-.336 0-.524.314-.316.528l5.598 5.749c.16.164.468.164.63 0l5.598-5.749c.208-.214.02-.528-.316-.528z"></path>
+      <path d="M17.598 13.6H6.402c-.336 0-.524.314-.316.529l5.598 5.748c.16.164.468.164.63 0l5.598-5.748c.208-.215.02-.529-.316-.529z"></path>
       <path
-        d="M17.913 9.872l-5.598-5.749a.465.465 0 00-.63 0L6.087 9.872c-.208.214-.02.528.316.528h11.195c.335 0 .523-.314.315-.528z"
+        d="M17.913 9.872l-5.598-5.748a.464.464 0 00-.63 0L6.087 9.872c-.208.214-.02.528.316.528h11.195c.335 0 .523-.314.315-.528z"
         fill="#9DA0A0"
       ></path>
     </svg>
   );
 };
 
-SortSolidDownFill.propTypes = {
-  color: PropTypes.string,
-  size: PropTypes.oneOfType([PropTypes.string, PropTypes.number])
-};
-
-SortSolidDownFill.defaultProps = {
-  // color: 'currentColor',
+SortSolidDownFillComponent.defaultProps = {
   color: '#0C0F0F',
   size: '24'
 };
+
+const SortSolidDownFill = React.memo(SortSolidDownFillComponent);
 
 export default SortSolidDownFill;

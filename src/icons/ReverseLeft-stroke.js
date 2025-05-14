@@ -1,0 +1,34 @@
+import React from 'react';
+
+const ReverseLeftComponent = props => {
+  const { color, size, ...otherProps } = props;
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width={size}
+      height={size}
+      viewBox="0 0 24 24"
+      className="dui-icon"
+      fill="none"
+      stroke="currentcolor"
+      color={color}
+      {...otherProps}
+    >
+      <path
+        d="M4 8h10a6 6 0 110 12H4M4 8l4-4M4 8l4 4"
+        strokeWidth="1.5"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      ></path>
+    </svg>
+  );
+};
+
+ReverseLeftComponent.defaultProps = {
+  color: '#0C0F0F',
+  size: '24'
+};
+
+const ReverseLeft = React.memo(ReverseLeftComponent);
+
+export default ReverseLeft;

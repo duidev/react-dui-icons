@@ -1,7 +1,6 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 
-const Share02 = props => {
+const Share02Component = props => {
   const { color, size, ...otherProps } = props;
   return (
     <svg
@@ -16,24 +15,19 @@ const Share02 = props => {
       {...otherProps}
     >
       <path
-        d="M7 11c-.93 0-1.395 0-1.776.102a3 3 0 00-2.122 2.121C3 13.605 3 14.07 3 15v1.2c0 1.68 0 2.52.327 3.162a3 3 0 001.311 1.311C5.28 21 6.12 21 7.8 21h8.4c1.68 0 2.52 0 3.162-.327a3 3 0 001.311-1.311C21 18.72 21 17.88 21 16.2V15c0-.93 0-1.395-.102-1.777a3 3 0 00-2.122-2.12C18.395 11 17.93 11 17 11m-1-4l-4-4m0 0L8 7m4-4v12"
-        strokeWidth="2"
+        d="M15.191 8.247h2.133a2.667 2.667 0 012.667 2.667v7.466a2.667 2.667 0 01-2.666 2.667H6.658A2.667 2.667 0 013.99 18.38v-7.466a2.667 2.667 0 012.667-2.667H8.79m-.27-2.65l2.895-2.412a1 1 0 011.28 0l2.895 2.413m-3.6-1.5v11.694"
+        strokeWidth="1.5"
         strokeLinecap="round"
-        strokeLinejoin="round"
       ></path>
     </svg>
   );
 };
 
-Share02.propTypes = {
-  color: PropTypes.string,
-  size: PropTypes.oneOfType([PropTypes.string, PropTypes.number])
-};
-
-Share02.defaultProps = {
-  // color: 'currentColor',
+Share02Component.defaultProps = {
   color: '#0C0F0F',
   size: '24'
 };
+
+const Share02 = React.memo(Share02Component);
 
 export default Share02;

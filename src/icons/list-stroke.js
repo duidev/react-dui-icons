@@ -1,7 +1,6 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 
-const List = props => {
+const ListComponent = props => {
   const { color, size, ...otherProps } = props;
   return (
     <svg
@@ -16,8 +15,8 @@ const List = props => {
       {...otherProps}
     >
       <path
-        d="M7 12h14M7 6h14M7 18h14M4 12h-.5M4 6h-.5M4 18h-.5"
-        strokeWidth="2"
+        d="M6.6 12H21M6.6 6H21M6.6 18H21M3.514 12H3m.514-6H3m.514 12H3"
+        strokeWidth="1.5"
         strokeLinecap="round"
         strokeLinejoin="round"
       ></path>
@@ -25,15 +24,11 @@ const List = props => {
   );
 };
 
-List.propTypes = {
-  color: PropTypes.string,
-  size: PropTypes.oneOfType([PropTypes.string, PropTypes.number])
-};
-
-List.defaultProps = {
-  // color: 'currentColor',
+ListComponent.defaultProps = {
   color: '#0C0F0F',
   size: '24'
 };
+
+const List = React.memo(ListComponent);
 
 export default List;

@@ -1,7 +1,6 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 
-const ReturnLeft = props => {
+const ReturnLeftComponent = props => {
   const { color, size, ...otherProps } = props;
   return (
     <svg
@@ -16,8 +15,8 @@ const ReturnLeft = props => {
       {...otherProps}
     >
       <path
-        d="M22 12H2m0 0l10 10M2 12L12 2"
-        strokeWidth="2"
+        d="M3.851 12.042h16.396m-10.06 6.713l-6.14-6.053a.983.983 0 010-1.404l6.14-6.053"
+        strokeWidth="1.501"
         strokeLinecap="round"
         strokeLinejoin="round"
       ></path>
@@ -25,15 +24,11 @@ const ReturnLeft = props => {
   );
 };
 
-ReturnLeft.propTypes = {
-  color: PropTypes.string,
-  size: PropTypes.oneOfType([PropTypes.string, PropTypes.number])
-};
-
-ReturnLeft.defaultProps = {
-  // color: 'currentColor',
+ReturnLeftComponent.defaultProps = {
   color: '#0C0F0F',
   size: '24'
 };
+
+const ReturnLeft = React.memo(ReturnLeftComponent);
 
 export default ReturnLeft;

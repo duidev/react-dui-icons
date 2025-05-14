@@ -1,7 +1,6 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 
-const Deductions = props => {
+const DeductionsComponent = props => {
   const { color, size, ...otherProps } = props;
   return (
     <svg
@@ -17,22 +16,18 @@ const Deductions = props => {
     >
       <path
         d="M7.554 12h8.89M2.898 16.151A10.004 10.004 0 014.93 4.929a10.004 10.004 0 0111.222-2.03M7.849 21.101a10.004 10.004 0 0011.222-2.03 10.004 10.004 0 002.03-11.222"
-        strokeWidth="2"
+        strokeWidth="1.5"
         strokeLinecap="round"
       ></path>
     </svg>
   );
 };
 
-Deductions.propTypes = {
-  color: PropTypes.string,
-  size: PropTypes.oneOfType([PropTypes.string, PropTypes.number])
-};
-
-Deductions.defaultProps = {
-  // color: 'currentColor',
+DeductionsComponent.defaultProps = {
   color: '#0C0F0F',
   size: '24'
 };
+
+const Deductions = React.memo(DeductionsComponent);
 
 export default Deductions;

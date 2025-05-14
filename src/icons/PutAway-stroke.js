@@ -1,7 +1,6 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 
-const PutAway = props => {
+const PutAwayComponent = props => {
   const { color, size, ...otherProps } = props;
   return (
     <svg
@@ -16,8 +15,8 @@ const PutAway = props => {
       {...otherProps}
     >
       <path
-        d="M3 3v18m18-9H7m0 0l7 7m-7-7l7-7"
-        strokeWidth="2"
+        d="M1.856 4v16m20.288-8.01H6.307m0 0l5.516 5m-5.516-5l5.516-5.862"
+        strokeWidth="1.5"
         strokeLinecap="round"
         strokeLinejoin="round"
       ></path>
@@ -25,15 +24,11 @@ const PutAway = props => {
   );
 };
 
-PutAway.propTypes = {
-  color: PropTypes.string,
-  size: PropTypes.oneOfType([PropTypes.string, PropTypes.number])
-};
-
-PutAway.defaultProps = {
-  // color: 'currentColor',
+PutAwayComponent.defaultProps = {
   color: '#0C0F0F',
   size: '24'
 };
+
+const PutAway = React.memo(PutAwayComponent);
 
 export default PutAway;

@@ -1,7 +1,6 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 
-const Download = props => {
+const DownloadComponent = props => {
   const { color, size, ...otherProps } = props;
   return (
     <svg
@@ -15,37 +14,20 @@ const Download = props => {
       color={color}
       {...otherProps}
     >
-      <g clipPath="url(#clip0_242_26)">
-        <path
-          d="M12.2 2.15v13.69m0 0l6.845-6.845M12.2 15.839L5.356 8.995M22.1 15.9v1.75c0 1.12 0 1.68-.218 2.108a2 2 0 01-.874.874c-.428.218-.988.218-2.108.218H5.5c-1.12 0-1.68 0-2.108-.218a2 2 0 01-.874-.874C2.3 19.331 2.3 18.77 2.3 17.65V15.9"
-          strokeWidth="2"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-        ></path>
-      </g>
-      <defs>
-        <clipPath id="clip0_242_26">
-          <rect
-            width="24"
-            height="24"
-            fill="#fff"
-            transform="rotate(90 12 12)"
-          ></rect>
-        </clipPath>
-      </defs>
+      <path
+        d="M8.529 13.147l2.896 2.413a1 1 0 001.28 0l2.895-2.413m-3.6 1.5V2.953m3.2 5.294h2.133A2.667 2.667 0 0120 10.914v7.466a2.667 2.667 0 01-2.667 2.667H6.667A2.667 2.667 0 014 18.38v-7.466a2.667 2.667 0 012.667-2.667H8.8"
+        strokeWidth="1.5"
+        strokeLinecap="round"
+      ></path>
     </svg>
   );
 };
 
-Download.propTypes = {
-  color: PropTypes.string,
-  size: PropTypes.oneOfType([PropTypes.string, PropTypes.number])
-};
-
-Download.defaultProps = {
-  // color: 'currentColor',
+DownloadComponent.defaultProps = {
   color: '#0C0F0F',
   size: '24'
 };
+
+const Download = React.memo(DownloadComponent);
 
 export default Download;

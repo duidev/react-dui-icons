@@ -1,7 +1,6 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 
-const SwitchVertical02 = props => {
+const SwitchVertical02Component = props => {
   const { color, size, ...otherProps } = props;
   return (
     <svg
@@ -16,8 +15,8 @@ const SwitchVertical02 = props => {
       {...otherProps}
     >
       <path
-        d="M17 4v16m0 0l-4-4m4 4l4-4M7 20V4m0 0L3 8m4-4l4 4"
-        strokeWidth="2"
+        d="M6.502 20V4l-4 4m14-4v16l4-4"
+        strokeWidth="1.5"
         strokeLinecap="round"
         strokeLinejoin="round"
       ></path>
@@ -25,15 +24,11 @@ const SwitchVertical02 = props => {
   );
 };
 
-SwitchVertical02.propTypes = {
-  color: PropTypes.string,
-  size: PropTypes.oneOfType([PropTypes.string, PropTypes.number])
-};
-
-SwitchVertical02.defaultProps = {
-  // color: 'currentColor',
+SwitchVertical02Component.defaultProps = {
   color: '#0C0F0F',
   size: '24'
 };
+
+const SwitchVertical02 = React.memo(SwitchVertical02Component);
 
 export default SwitchVertical02;

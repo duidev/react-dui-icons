@@ -1,7 +1,6 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 
-const ArrowRight = props => {
+const ArrowRightComponent = props => {
   const { color, size, ...otherProps } = props;
   return (
     <svg
@@ -16,8 +15,8 @@ const ArrowRight = props => {
       {...otherProps}
     >
       <path
-        d="M9 18l6-6-6-6"
-        strokeWidth="2"
+        d="M8 19.873l7.25-7.25a1 1 0 000-1.414L8 3.958"
+        strokeWidth="1.5"
         strokeLinecap="round"
         strokeLinejoin="round"
       ></path>
@@ -25,15 +24,11 @@ const ArrowRight = props => {
   );
 };
 
-ArrowRight.propTypes = {
-  color: PropTypes.string,
-  size: PropTypes.oneOfType([PropTypes.string, PropTypes.number])
-};
-
-ArrowRight.defaultProps = {
-  // color: 'currentColor',
+ArrowRightComponent.defaultProps = {
   color: '#0C0F0F',
   size: '24'
 };
+
+const ArrowRight = React.memo(ArrowRightComponent);
 
 export default ArrowRight;

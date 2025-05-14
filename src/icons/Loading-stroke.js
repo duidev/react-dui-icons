@@ -1,7 +1,6 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 
-const Loading = props => {
+const LoadingComponent = props => {
   const { color, size, ...otherProps } = props;
   return (
     <svg
@@ -16,8 +15,8 @@ const Loading = props => {
       {...otherProps}
     >
       <path
-        d="M12 2.25v2.5M12 18v4M5.75 12h-3.5m19 0h-1.5m-1.293 6.457l-.707-.707m.914-12.334L17.25 6.83M4.922 19.078L7.75 16.25M5.129 5.209L7.25 7.33"
-        strokeWidth="2"
+        d="M11.996 2.25v2.5m0 13.25v4m-6.25-10h-3.5m19 0h-1.5m-1.293 6.457l-.707-.707m.914-12.334L17.246 6.83M4.917 19.078l2.829-2.828M5.124 5.21L7.246 7.33"
+        strokeWidth="1.5"
         strokeLinecap="round"
         strokeLinejoin="round"
       ></path>
@@ -25,15 +24,11 @@ const Loading = props => {
   );
 };
 
-Loading.propTypes = {
-  color: PropTypes.string,
-  size: PropTypes.oneOfType([PropTypes.string, PropTypes.number])
-};
-
-Loading.defaultProps = {
-  // color: 'currentColor',
+LoadingComponent.defaultProps = {
   color: '#0C0F0F',
   size: '24'
 };
+
+const Loading = React.memo(LoadingComponent);
 
 export default Loading;

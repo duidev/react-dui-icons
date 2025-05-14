@@ -1,7 +1,6 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 
-const Hashrate = props => {
+const HashrateComponent = props => {
   const { color, size, ...otherProps } = props;
   return (
     <svg
@@ -16,24 +15,19 @@ const Hashrate = props => {
       {...otherProps}
     >
       <path
-        d="M3 11v10m12-10v10M9 3v18M21 3v18"
-        strokeWidth="2"
+        d="M3.249 12.972v7.78m11.668-7.78v7.78M9.083 3.247v17.503M20.752 3.248v17.503"
+        strokeWidth="1.5"
         strokeLinecap="round"
-        strokeLinejoin="round"
       ></path>
     </svg>
   );
 };
 
-Hashrate.propTypes = {
-  color: PropTypes.string,
-  size: PropTypes.oneOfType([PropTypes.string, PropTypes.number])
-};
-
-Hashrate.defaultProps = {
-  // color: 'currentColor',
+HashrateComponent.defaultProps = {
   color: '#0C0F0F',
   size: '24'
 };
+
+const Hashrate = React.memo(HashrateComponent);
 
 export default Hashrate;

@@ -1,7 +1,6 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 
-const Leader = props => {
+const LeaderComponent = props => {
   const { color, size, ...otherProps } = props;
   return (
     <svg
@@ -16,26 +15,26 @@ const Leader = props => {
       {...otherProps}
     >
       <path
-        d="M19.5 9H9.75M4.5 9h1.25"
-        strokeWidth="2"
+        d="M19.496 15h-15"
+        strokeWidth="1.5"
         strokeLinecap="round"
         strokeLinejoin="round"
       ></path>
       <path
-        d="M19.5 15h-15"
-        strokeWidth="2"
+        d="M19.496 9h-15"
+        strokeWidth="1.5"
         strokeLinecap="round"
         strokeLinejoin="round"
       ></path>
       <path
-        d="M6.618 18.989L10.5 4.5"
-        strokeWidth="2"
+        d="M6.613 18.989L10.496 4.5"
+        strokeWidth="1.5"
         strokeLinecap="round"
         strokeLinejoin="round"
       ></path>
       <path
-        d="M13.368 18.989L17.25 4.5"
-        strokeWidth="2"
+        d="M13.363 18.989L17.246 4.5"
+        strokeWidth="1.5"
         strokeLinecap="round"
         strokeLinejoin="round"
       ></path>
@@ -43,15 +42,11 @@ const Leader = props => {
   );
 };
 
-Leader.propTypes = {
-  color: PropTypes.string,
-  size: PropTypes.oneOfType([PropTypes.string, PropTypes.number])
-};
-
-Leader.defaultProps = {
-  // color: 'currentColor',
+LeaderComponent.defaultProps = {
   color: '#0C0F0F',
   size: '24'
 };
+
+const Leader = React.memo(LeaderComponent);
 
 export default Leader;

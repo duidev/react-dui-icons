@@ -1,7 +1,6 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 
-const UnexpectedExpenses = props => {
+const UnexpectedExpensesComponent = props => {
   const { color, size, ...otherProps } = props;
   return (
     <svg
@@ -16,24 +15,25 @@ const UnexpectedExpenses = props => {
       {...otherProps}
     >
       <path
-        d="M12 8v4m-1.029-9.726l-5 1.33A4 4 0 003 7.47v6.723a4 4 0 001.892 3.399l5 3.1a4 4 0 004.216 0l5-3.1a4 4 0 001.892-3.4V7.47a4 4 0 00-2.971-3.865l-5-1.331a4 4 0 00-2.058 0z"
-        strokeWidth="2"
-        strokeLinecap="round"
+        d="M10 3.155a4 4 0 014 0l4.66 2.69a4 4 0 012 3.465v5.38a4 4 0 01-2 3.465L14 20.845a4 4 0 01-4 0l-4.66-2.69a4 4 0 01-2-3.464V9.31a4 4 0 012-3.465L10 3.155z"
+        strokeWidth="1.5"
+        strokeLinejoin="round"
       ></path>
-      <circle cx="12" cy="15" r="1"></circle>
+      <path
+        d="M12 8.4v4.95m0 2.25h.009"
+        strokeWidth="1.5"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      ></path>
     </svg>
   );
 };
 
-UnexpectedExpenses.propTypes = {
-  color: PropTypes.string,
-  size: PropTypes.oneOfType([PropTypes.string, PropTypes.number])
-};
-
-UnexpectedExpenses.defaultProps = {
-  // color: 'currentColor',
+UnexpectedExpensesComponent.defaultProps = {
   color: '#0C0F0F',
   size: '24'
 };
+
+const UnexpectedExpenses = React.memo(UnexpectedExpensesComponent);
 
 export default UnexpectedExpenses;

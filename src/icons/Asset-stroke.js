@@ -1,7 +1,6 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 
-const Asset = props => {
+const AssetComponent = props => {
   const { color, size, ...otherProps } = props;
   return (
     <svg
@@ -15,9 +14,19 @@ const Asset = props => {
       color={color}
       {...otherProps}
     >
+      <rect
+        x="3"
+        y="4"
+        width="18"
+        height="16"
+        rx="4"
+        strokeWidth="1.501"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      ></rect>
       <path
-        d="M17.5 14h.01M4 5v14a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2H6a2 2 0 01-2-2zm0 0a2 2 0 012-2h12m0 11a.5.5 0 11-1 0 .5.5 0 011 0z"
-        strokeWidth="2"
+        d="M20.5 14.346h-4.904a2.25 2.25 0 110-4.498H20.5"
+        strokeWidth="1.501"
         strokeLinecap="round"
         strokeLinejoin="round"
       ></path>
@@ -25,15 +34,11 @@ const Asset = props => {
   );
 };
 
-Asset.propTypes = {
-  color: PropTypes.string,
-  size: PropTypes.oneOfType([PropTypes.string, PropTypes.number])
-};
-
-Asset.defaultProps = {
-  // color: 'currentColor',
+AssetComponent.defaultProps = {
   color: '#0C0F0F',
   size: '24'
 };
+
+const Asset = React.memo(AssetComponent);
 
 export default Asset;

@@ -1,7 +1,6 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 
-const ArrowUpFill = props => {
+const ArrowUpFillComponent = props => {
   const { color, size, ...otherProps } = props;
   return (
     <svg
@@ -18,22 +17,18 @@ const ArrowUpFill = props => {
       <path
         fillRule="evenodd"
         clipRule="evenodd"
-        d="M17.657 13.757L12 8.101l-5.657 5.656 1.414 1.415L12 10.929l4.243 4.243 1.414-1.415z"
+        d="M17.657 13.758L12 8.1l-5.657 5.656 1.414 1.415L12 10.929l4.243 4.243 1.414-1.415z"
         fill="#fff"
       ></path>
     </svg>
   );
 };
 
-ArrowUpFill.propTypes = {
-  color: PropTypes.string,
-  size: PropTypes.oneOfType([PropTypes.string, PropTypes.number])
-};
-
-ArrowUpFill.defaultProps = {
-  // color: 'currentColor',
+ArrowUpFillComponent.defaultProps = {
   color: '#0C0F0F',
   size: '24'
 };
+
+const ArrowUpFill = React.memo(ArrowUpFillComponent);
 
 export default ArrowUpFill;

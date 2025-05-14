@@ -1,7 +1,6 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 
-const CheckCircle = props => {
+const CheckCircleComponent = props => {
   const { color, size, ...otherProps } = props;
   return (
     <svg
@@ -16,8 +15,13 @@ const CheckCircle = props => {
       {...otherProps}
     >
       <path
-        d="M7.5 12l3 3 6-6m5.5 3c0 5.523-4.477 10-10 10S2 17.523 2 12 6.477 2 12 2s10 4.477 10 10z"
-        strokeWidth="2"
+        d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+        strokeWidth="1.501"
+        strokeLinecap="round"
+      ></path>
+      <path
+        d="M15.792 9.894l-5.134 5.134-2.348-2.349"
+        strokeWidth="1.501"
         strokeLinecap="round"
         strokeLinejoin="round"
       ></path>
@@ -25,15 +29,11 @@ const CheckCircle = props => {
   );
 };
 
-CheckCircle.propTypes = {
-  color: PropTypes.string,
-  size: PropTypes.oneOfType([PropTypes.string, PropTypes.number])
-};
-
-CheckCircle.defaultProps = {
-  // color: 'currentColor',
+CheckCircleComponent.defaultProps = {
   color: '#0C0F0F',
   size: '24'
 };
+
+const CheckCircle = React.memo(CheckCircleComponent);
 
 export default CheckCircle;

@@ -1,7 +1,6 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 
-const Auction = props => {
+const AuctionComponent = props => {
   const { color, size, ...otherProps } = props;
   return (
     <svg
@@ -15,45 +14,30 @@ const Auction = props => {
       color={color}
       {...otherProps}
     >
+      <rect
+        x="11.908"
+        y="3.005"
+        width="6.5"
+        height="12.5"
+        rx="1.25"
+        transform="rotate(37.162 11.908 3.005)"
+        strokeWidth="1.5"
+      ></rect>
       <path
-        d="M13.305 2.044l7.172 7.084"
-        strokeWidth="2"
+        d="M20.426 14.879a1.25 1.25 0 01.31 1.661l-.074.106-1.043 1.342a1.25 1.25 0 01-1.632.304l-.105-.072-5.818-4.362 2.58-3.316 5.782 4.337z"
+        strokeWidth="1.5"
         strokeLinecap="round"
       ></path>
-      <path
-        d="M14.761 12.967l6.553 6.554"
-        strokeWidth="2"
-        strokeLinecap="round"
-      ></path>
-      <path
-        d="M4.202 11.146l7.007 7.33"
-        strokeWidth="2"
-        strokeLinecap="round"
-      ></path>
-      <path
-        d="M14.761 3.5l-9.102 9.103"
-        strokeWidth="2"
-        strokeLinecap="round"
-      ></path>
-      <path
-        d="M19.494 8.234l-9.102 9.102"
-        strokeWidth="2"
-        strokeLinecap="round"
-      ></path>
-      <path d="M4 22h10.298" strokeWidth="2" strokeLinecap="round"></path>
+      <path d="M4 22h16" strokeWidth="1.5" strokeLinecap="round"></path>
     </svg>
   );
 };
 
-Auction.propTypes = {
-  color: PropTypes.string,
-  size: PropTypes.oneOfType([PropTypes.string, PropTypes.number])
-};
-
-Auction.defaultProps = {
-  // color: 'currentColor',
+AuctionComponent.defaultProps = {
   color: '#0C0F0F',
   size: '24'
 };
+
+const Auction = React.memo(AuctionComponent);
 
 export default Auction;

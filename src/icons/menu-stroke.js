@@ -1,7 +1,6 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 
-const Menu = props => {
+const MenuComponent = props => {
   const { color, size, ...otherProps } = props;
   return (
     <svg
@@ -16,8 +15,8 @@ const Menu = props => {
       {...otherProps}
     >
       <path
-        d="M3 12h18M3 6h18M3 18h18"
-        strokeWidth="2"
+        d="M3.996 12h16m-16-6h16m-16 12h16"
+        strokeWidth="1.5"
         strokeLinecap="round"
         strokeLinejoin="round"
       ></path>
@@ -25,15 +24,11 @@ const Menu = props => {
   );
 };
 
-Menu.propTypes = {
-  color: PropTypes.string,
-  size: PropTypes.oneOfType([PropTypes.string, PropTypes.number])
-};
-
-Menu.defaultProps = {
-  // color: 'currentColor',
+MenuComponent.defaultProps = {
   color: '#0C0F0F',
   size: '24'
 };
+
+const Menu = React.memo(MenuComponent);
 
 export default Menu;

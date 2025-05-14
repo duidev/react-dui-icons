@@ -1,7 +1,6 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 
-const PriceDropFill = props => {
+const PriceDropFillComponent = props => {
   const { color, size, ...otherProps } = props;
   return (
     <svg
@@ -37,15 +36,11 @@ const PriceDropFill = props => {
   );
 };
 
-PriceDropFill.propTypes = {
-  color: PropTypes.string,
-  size: PropTypes.oneOfType([PropTypes.string, PropTypes.number])
-};
-
-PriceDropFill.defaultProps = {
-  // color: 'currentColor',
+PriceDropFillComponent.defaultProps = {
   color: '#0C0F0F',
   size: '24'
 };
+
+const PriceDropFill = React.memo(PriceDropFillComponent);
 
 export default PriceDropFill;

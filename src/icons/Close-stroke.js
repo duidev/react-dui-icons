@@ -1,7 +1,6 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 
-const Close = props => {
+const CloseComponent = props => {
   const { color, size, ...otherProps } = props;
   return (
     <svg
@@ -16,8 +15,8 @@ const Close = props => {
       {...otherProps}
     >
       <path
-        d="M18 6L6 18M6 6l12 12"
-        strokeWidth="2"
+        d="M4.894 4.775l14.212 14.363m-.005-14.12L4.894 19.225"
+        strokeWidth="1.501"
         strokeLinecap="round"
         strokeLinejoin="round"
       ></path>
@@ -25,15 +24,11 @@ const Close = props => {
   );
 };
 
-Close.propTypes = {
-  color: PropTypes.string,
-  size: PropTypes.oneOfType([PropTypes.string, PropTypes.number])
-};
-
-Close.defaultProps = {
-  // color: 'currentColor',
+CloseComponent.defaultProps = {
   color: '#0C0F0F',
   size: '24'
 };
+
+const Close = React.memo(CloseComponent);
 
 export default Close;

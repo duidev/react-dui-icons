@@ -1,7 +1,6 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 
-const Deposits = props => {
+const DepositsComponent = props => {
   const { color, size, ...otherProps } = props;
   return (
     <svg
@@ -15,9 +14,15 @@ const Deposits = props => {
       color={color}
       {...otherProps}
     >
+      <path d="M2 8.313h19.892" strokeWidth="1.5"></path>
       <path
-        d="M17 18l2 2 4-4m0-6H3m20 2V8.2c0-1.12 0-1.68-.218-2.108a2 2 0 00-.874-.874C21.48 5 20.92 5 19.8 5H6.2c-1.12 0-1.68 0-2.108.218a2 2 0 00-.874.874C3 6.52 3 7.08 3 8.2v7.6c0 1.12 0 1.68.218 2.108a2 2 0 00.874.874C4.52 19 5.08 19 6.2 19H13"
-        strokeWidth="2"
+        d="M14.924 21H6.54a4 4 0 01-4-4V7a4 4 0 014-4H18a4 4 0 014 4v6.688"
+        strokeWidth="1.5"
+        strokeLinecap="round"
+      ></path>
+      <path
+        d="M16 18l2 2 4-4"
+        strokeWidth="1.5"
         strokeLinecap="round"
         strokeLinejoin="round"
       ></path>
@@ -25,15 +30,11 @@ const Deposits = props => {
   );
 };
 
-Deposits.propTypes = {
-  color: PropTypes.string,
-  size: PropTypes.oneOfType([PropTypes.string, PropTypes.number])
-};
-
-Deposits.defaultProps = {
-  // color: 'currentColor',
+DepositsComponent.defaultProps = {
   color: '#0C0F0F',
   size: '24'
 };
+
+const Deposits = React.memo(DepositsComponent);
 
 export default Deposits;

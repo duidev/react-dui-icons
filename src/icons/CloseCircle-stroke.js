@@ -1,7 +1,6 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 
-const CloseCircle = props => {
+const CloseCircleComponent = props => {
   const { color, size, ...otherProps } = props;
   return (
     <svg
@@ -16,24 +15,19 @@ const CloseCircle = props => {
       {...otherProps}
     >
       <path
-        d="M15 9l-6 6m0-6l6 6m7-3c0 5.523-4.477 10-10 10S2 17.523 2 12 6.477 2 12 2s10 4.477 10 10z"
-        strokeWidth="2"
+        d="M8.317 8.815l3.188 3.189m0 0l3.19 3.189m-3.19-3.189l3.189-3.189m-3.189 3.189l-3.188 3.189M20.5 12a9 9 0 11-18 0 9 9 0 0118 0z"
+        strokeWidth="1.501"
         strokeLinecap="round"
-        strokeLinejoin="round"
       ></path>
     </svg>
   );
 };
 
-CloseCircle.propTypes = {
-  color: PropTypes.string,
-  size: PropTypes.oneOfType([PropTypes.string, PropTypes.number])
-};
-
-CloseCircle.defaultProps = {
-  // color: 'currentColor',
+CloseCircleComponent.defaultProps = {
   color: '#0C0F0F',
   size: '24'
 };
+
+const CloseCircle = React.memo(CloseCircleComponent);
 
 export default CloseCircle;
